@@ -1,0 +1,70 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+compile '/assets/less/*' do
+# Note:  built-in less filter not working properly, using commandline filter instead
+  filter :eveohLess if @item.identifier.gsub('/assets/less/','').chop == 'eveoh'
+end
+
+compile '/assets/js/bootstrap/*' do
+# Note:  built-in uglifyjs filter not working properly, using commandline filter instead
+  filter :bootstrapJs if @item.identifier.gsub('/assets/js/bootstrap/','').chop == 'bootstrap-modal'
+end
+
+compile '/assets/js/*/' do
+  # don’t filter or layout
+end
+
+compile '/assets/*' do
+  # don’t filter or layout
+end
+
+compile '*' do
+  if item.binary?
+    # don’t filter binary items
+  else
+    filter :erb
+    layout 'default'
+  end
+end
+
+route '/assets/less/*/' do
+  # don't copy over less files
+end
+
+route '/assets/js/bootstrap/*/' do
+  # don't copy over bootstrap js files
+end
+
+route '/assets/fonts/*/' do
+  # /fonts/foo-eot/ -> /fonts/foo.eot
+  item.identifier.sub(/-.+\/$/, '') + '.' + item[:extension]
+end
+
+route '/assets/js/*/' do
+    item.identifier.chop + ".js"
+end
+
+route '*' do
+  if item.binary?
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension]
+  else
+    # Write item with identifier /foo/ to /foo/index.html
+    item.identifier + 'index.html'
+  end
+end
+
+layout '*', :erb

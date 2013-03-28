@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eveoh - <%=h @item[:title] %></title>
+
+    <link rel="stylesheet" href="/assets/style/eveoh.css" media="screen">
+
+    <link rel="stylesheet"
+          href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="/assets/js/html5shiv.js"></script>
+    <script src="/assets/js/respond.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-337812-4']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        (function () {
+            var u = (("https:" == document.location.protocol) ? "https://stats.eveoh.nl/" : "http://stats.eveoh.nl/");
+            _paq.push(['setSiteId', 1]);
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.defer = true;
+            g.async = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+</head>
+
+<body>
+<header class="visible-phone">
+    <img src="/assets/img/logo-eveoh.png" alt="Eveoh logo" class="logo" />
+</header>
+
+<header class="hidden-phone hidden-print">
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img src="/assets/img/logo-eveoh.png" alt="Eveoh logo" /></a>
+            <nav class="nav-collapse collapse" role="navigation">
+                <ul class="nav pull-right">
+                    <li class="active"><a href="#about-us">About us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#customers">Customers</a></li>
+                    <li><a href="#contact-us">Contact us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<%= yield %>
+
+<footer>
+    &copy; 2010 &ndash;
+    <script>document.write(new Date().getFullYear())</script>
+    &nbsp;<a href="http://eveoh.nl">Eveoh</a> | <a href="/privacy-policy/">Privacy policy</a> | <a href="/disclaimer/">Disclaimer</a>
+    <br>
+    Chamber of Commerce: 27379244, The Hague, The Netherlands
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(decodeURI("%3Cscript src='/assets/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+</script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/orangebox.js"></script>
+<script type="text/javascript">
+    oB.settings.addThis = false;
+    oB.settings.contentMaxSize = [0.7, 0.7];
+    oB.settings.fadeTime = 0;
+
+    $('body').scrollspy();
+</script>
+</body>
+</html>
