@@ -33,3 +33,6 @@ tmp/
 output/
 crash.log
 node_modules/
+
+# Misc
+*.psd
