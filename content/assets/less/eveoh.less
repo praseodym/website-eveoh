@@ -146,6 +146,37 @@ footer {
   }
 }
 
+.team {
+  p {
+    margin: 0px;
+  }
+  img {
+    height: 128px;
+    width: 128px;
+  }
+  .social {
+    a {
+      background-image: url('/assets/img/social-sprites.png');
+      display: inline-block;
+      height: 32px;
+      width: 32px;
+
+      &.twitter {
+        background-position: -38px -38px;
+      }
+      &.twitter:hover {
+        background-position: -38px -2px;
+      }
+      &.linkedin {
+        background-position: -2px -38px;
+      }
+      &.linkedin:hover {
+        background-position: -2px -2px;
+      }
+    }
+  }
+}
+
 .vcard {
   padding-top: 10px;
 }
@@ -224,8 +255,28 @@ footer {
 
 /* Responsive */
 @media screen and (min-width: 768px) {
-  .first-section {
-    margin-top: 60px;
+  .banner {
+    position: relative;
+    background: #fff url('/assets/img/banner-mobile.png') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+
+    .banner-text {
+      margin-left: 0;
+
+      h1 {
+        text-align: left;
+        color: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        margin-top: 100px;
+        font-size: 40px;
+        width: 250px;
+      }
+      p {
+        display: inline;
+        font-size: 15px;
+      }
+    }
   }
 
   section {
@@ -235,5 +286,73 @@ footer {
   .first-section {
     font-size: 18px;
     font-weight: normal;
+  }
+
+  .map{
+    position: relative;
+    height: 200px;
+
+    #map {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+// Responsive: Desktops and up
+@media screen and (min-width: 992px) {
+  .banner {
+    height: 350px;
+
+    .banner-text {
+      margin-left: 30px;
+
+      h1 {
+        margin-top: 100px;
+        font-size: 50px;
+        width: 300px;
+      }
+      p {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+// Responsive: Large desktops and up
+@media screen and (min-width: 1200px) {
+  [class^="span"] {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .banner {
+    height: 450px;
+
+    .banner-text {
+      h1 {
+        margin-top: 140px;
+        font-size: 60px;
+        width: 400px;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .address-legend {
+    display: inline;
+  }
+
+  #map {
+    display: none;
   }
 }
