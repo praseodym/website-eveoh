@@ -177,6 +177,10 @@ footer {
   }
 }
 
+#blog {
+  display: none;
+}
+
 .vcard {
   padding-top: 10px;
 }
@@ -261,20 +265,37 @@ footer {
     background-size: cover;
     height: 300px;
 
-    .banner-text {
-      margin-left: 0;
+    #blog {
+      display: block;
 
-      h1 {
+      h2 {
         text-align: left;
         color: rgba(255, 255, 255, 0.95);
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-        margin-top: 100px;
-        font-size: 40px;
+        margin-top: 80px;
+        font-size: 20px;
         width: 250px;
+        -webkit-animation: fadeFromAbove 0.5s ease;
+        -moz-animation: fadeFromAbove 0.5s ease;
+
+        a {
+          color: inherit !important;
+        }
       }
-      p {
-        display: inline;
-        font-size: 15px;
+
+      .post {
+        margin-top: 10px;
+
+        .author {
+          margin: 0;
+          line-height: 1em;
+          font-size: 14px;
+        }
+
+        .title {
+          font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+          color: rgba(255, 255, 255, 0.85);
+        }
       }
     }
   }

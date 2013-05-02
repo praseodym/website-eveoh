@@ -3,7 +3,8 @@ title: Home
 ---
 
 <header class="banner" id="home">
-    <div class="container">
+    <div class="container" id="blog">
+        <h2><a href="http://blog.eveoh.nl">Recent blog posts</a></h2>
     </div>
 </header>
 
@@ -257,8 +258,6 @@ title: Home
 
     <p>Are you interested in using one of our products at your institution? Please do contact us for more information!</p>
     <div class="container">
-
-
         <hr>
 
         <div id="hcard-eveoh" class="org vcard contact">
@@ -324,7 +323,9 @@ title: Home
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz-1cLz7oGVA6HIHY9goUx-T5k2wlKJNw&amp;sensor=false">
 </script>
+<!-- Load recent blog posts -->
 <script type="text/javascript">
+
     // Initialize the Google Map
     function initialize() {
         var eveoh = new google.maps.LatLng(52.0276445,4.3555377);
@@ -342,5 +343,18 @@ title: Home
         marker.setMap(map);
     }
     google.maps.event.addDomListener(window, 'load', initialize);
+
+    // Callback for blog request
+    var loadPosts = function(data) {
+        var baseurl = 'http://blog.eveoh.nl';
+        for(var i = 0; i < data.length; i++) {
+            var post = document.createElement('div');
+            post.className = 'post';
+            post.innerHTML = '<a class="title" href="' + baseurl + data[i].url + '">' + data[i].title + '</a>' +
+                    '<p class="author">By ' + data[i].author + '</p>';
+            document.getElementById('blog').appendChild(post);
+        }
+    }
 </script>
+<script type="text/javascript" src="http://blog.eveoh.nl/feed.js?jsonp=loadPosts"></script>
 
