@@ -3,8 +3,9 @@ title: Home
 ---
 
 <header class="banner" id="home">
-    <div class="container" id="blog">
-        <h2><a href="http://blog.eveoh.nl">Recent blog posts</a></h2>
+    <div class="container">
+        <div class="span4" id="blog">
+        </div>
     </div>
 </header>
 
@@ -23,8 +24,6 @@ title: Home
     <div class="container">
         <h2>Products</h2>
 
-        <p>-tagline-</p>
-
         <div class="row pad">
             <div class="span6">
                 <a href="/assets/img/mytimetable.png" data-ob="lightbox" title="Main MyTimetable interface"
@@ -36,7 +35,7 @@ title: Home
             <div class="span5 offset1 text-justify small">
                 <h3>MyTimetable</h3>
 
-                <p>MyTimetable presents your timetables in a clear, intuitive and personalised way. Offer your students
+                <p>MyTimetable presents your timetables in a clear, intuitive and personalised way. Offer students
                     and staff members their timetables on the web, on their mobile phones and through your e-learning
                     portal. Already 300,000 students are using MyTimetable on a daily basis.</p>
 
@@ -55,12 +54,12 @@ title: Home
             <div class="span5 offset1 text-left small">
                 <h3>MyEnrolments</h3>
 
-                <p>MyEnrolments is the new enrolment system for education at the department of Architecture of Delft
-                    University of Technology. It is used by students and staff to maintain course enrolments.</p>
+                <p>With MyEnrolments students are able to enrol for courses while several types of admission requirements
+                    are automatically checked. A wide range of reports is available for support staff.</p>
 
                 <p><span class="button-disabled">No website yet.</span></p>
 
-                <p><em class="muted">Please contact us for more information.</em></p>
+                <p><em class="muted">Please <a href="#contact">contact us</a> for more information.</em></p>
             </div>
         </div>
 
@@ -75,13 +74,14 @@ title: Home
             <div class="span5 offset1 text-left small">
                 <h3>Lecture Recordings Planner</h3>
 
-                <p>The Lecture Recordings Planner helps the TU Delft Collegerama team plan their recordings. It offers
-                    a way to keep track of the hours made by the operators, as well as schedule the recording of
-                    lectures.</p>
+                <p>The Lecture Recordings Planner enables your AV team to plan their recordings based on actual
+                    timetabling data, also keeping track of changes in timetables. Operators can enrol themselves to
+                    recordings to easy the planning process. Lecture Recordings Planner can export the planned
+                    recordings to <a href="http://www.sonicfoundry.com/">Sonic Foundry Mediasite</a>.</p>
 
                 <p><span class="button-disabled">No website yet.</span></p>
 
-                <p><em class="muted">Please contact us for more information.</em></p>
+                <p><em class="muted">Please <a href="#contact">contact us</a> for more information.</em></p>
             </div>
         </div>
     </div>
@@ -93,9 +93,10 @@ title: Home
         <div class="row text-justify pad">
             <div class="span4">
                 <strong>Software development</strong>
-                <p>We develop custom software solutions for educational institutions and specializes in web and
-                    mobile. By using simple, straightforward and user-friendly interfaces, we provide an optimal user
-                    experience of our applications for our customers: students and employees of your institution.</p>
+                <p>We develop custom software solutions for educational institutions and specialize in web and
+                    mobile applications. By using simple, straightforward and user-friendly interfaces, we provide an
+                    optimal user experience of our applications for our customers: students and employees of your
+                    institution.</p>
             </div>
             <div class="span4">
                 <strong>Consultancy</strong>
@@ -190,6 +191,12 @@ title: Home
                     <img src="/assets/img/logo-hva.png" alt="Amsterdam University of Applied Sciences logo" />
                 </a>
             </div>
+
+            <div class="span3 text-center">
+                <a href="http://www.collegerama.nl/" target="_blank">
+                    <img src="/assets/img/logo-collegerama.png" alt="Collegerama logo" />
+                </a>
+            </div>
         </div>
     </div>
 </section>
@@ -197,7 +204,7 @@ title: Home
 <section id="team">
     <div class="container team">
         <h2>Our team</h2>
-        <div class="row">
+        <div class="row pad">
             <div class="span4 offset2 text-center">
                 <img src="/assets/img/team-sample.png" alt="Photo"/>
                 <p>
@@ -221,7 +228,7 @@ title: Home
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row pad">
             <div class="span4 text-center">
                 <img id="mark" src="/assets/img/mark.png" alt="Photo"/>
                 <p>
@@ -229,7 +236,6 @@ title: Home
                 </p>
                 <p>Developer</p>
                 <div class="social">
-                    <a class="twitter" href="http://twitter.com/praseodym" target="_blank"></a>
                     <a class="linkedin" href="http://nl.linkedin.com/in/praseodym" target="_blank"></a>
                 </div>
             </div>
@@ -254,6 +260,20 @@ title: Home
                     <a class="twitter" href="http://twitter.com/p44t" target="_blank"></a>
                     <a class="linkedin" href="#"></a>
                 </div>
+            </div>
+        </div>
+        <div class="row pad">
+            <div class="span4 offset2 text-center">
+                <img src="/assets/img/team-sample.png" alt="Photo"/>
+                <p>
+                    <strong class="name">You?</strong>
+                </p>
+            </div>
+
+            <div class="span5 text-left">
+                <p>We are always looking for skilled developers to join our team. Why not <a href="#contact">contact us</a>
+                    if you like working with Java, Spring framework, HTML5, mobile, Javascript, APIs, GWT, IntelliJ
+                    and Gradle? </p>
             </div>
         </div>
     </div>
@@ -326,65 +346,27 @@ title: Home
         </div>
     </div>
 </section>
+
+<section id="mobile-blog" class="visible-phone">
+    <h2>Recent blog posts</h2>
+
+    <div class="container">
+        <div class="row text-left">
+            <div class="span12">
+                <div id="blog-mobile"></div>
+
+                <p><a href="http://blog.eveoh.nl" class="button">Visit our blog</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- Load the Google Maps API -->
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz-1cLz7oGVA6HIHY9goUx-T5k2wlKJNw&amp;sensor=false">
 </script>
-<!-- Load recent blog posts -->
-<script type="text/javascript">
+<script type="text/javascript" src="/assets/js/eveoh.js"></script>
+<script type="text/javascript" src="http://blog.eveoh.nl/loadPosts.js"></script>
 
-    // Initialize the Google Map
-    function initialize() {
-        var eveoh = new google.maps.LatLng(52.0276445,4.3555377);
-        var mapOptions = {
-            center: eveoh,
-            zoom: 13,
-            disableDefaultUI: true,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map"),
-                mapOptions);
-
-        var marker = new google.maps.Marker({
-            animation: google.maps.Animation.DROP,
-            position: eveoh,
-            title: "Eveoh"
-        });
-        marker.setMap(map);
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-    // Callback for blog request
-    var loadPosts = function(data) {
-        var baseurl = 'http://blog.eveoh.nl';
-        for(var i = 0; i < data.length; i++) {
-            var post = document.createElement('div');
-            post.className = 'post';
-            post.innerHTML = '<a class="title" href="' + baseurl + data[i].url + '">' + data[i].title + '</a>' +
-                    '<p class="author">By ' + data[i].author + '</p>';
-            document.getElementById('blog').appendChild(post);
-        }
-    }
-
-    window.onload = function(){
-        document.getElementById('mark').addEventListener('click', function(event){
-            goGoGadgetNyanCat();
-        });
-    };
-
-    function goGoGadgetNyanCat() {
-        if (typeof jQuery != 'undefined') {
-            var $nyancat = $('<img src="/assets/img/nyancat.gif" id="nyancat" />').appendTo('body');
-            $('#nyancat').animate({
-                left: '5000px'
-            }, {
-                duration: 5000,
-                complete: function(){
-                    $('#nyancat').remove();
-                }
-            });
-        }
-    }
-</script>
-<script type="text/javascript" src="http://blog.eveoh.nl/feed.js?jsonp=loadPosts"></script>
 

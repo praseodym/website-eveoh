@@ -1,4 +1,25 @@
 <!DOCTYPE HTML>
+<!--
+
+EEEEEEEEEEEEEEEEEEEEEE                                                          hhhhhhh
+E::::::::::::::::::::E                                                          h:::::h
+E::::::::::::::::::::E                                                          h:::::h
+EE::::::EEEEEEEEE::::E                                                          h:::::h
+  E:::::E       EEEEEEvvvvvvv           vvvvvvv eeeeeeeeeeee       ooooooooooo   h::::h hhhhh
+  E:::::E              v:::::v         v:::::vee::::::::::::ee   oo:::::::::::oo h::::hh:::::hhh
+  E::::::EEEEEEEEEE     v:::::v       v:::::ve::::::eeeee:::::eeo:::::::::::::::oh::::::::::::::hh
+  E:::::::::::::::E      v:::::v     v:::::ve::::::e     e:::::eo:::::ooooo:::::oh:::::::hhh::::::h
+  E:::::::::::::::E       v:::::v   v:::::v e:::::::eeeee::::::eo::::o     o::::oh::::::h   h::::::h
+  E::::::EEEEEEEEEE        v:::::v v:::::v  e:::::::::::::::::e o::::o     o::::oh:::::h     h:::::h
+  E:::::E                   v:::::v:::::v   e::::::eeeeeeeeeee  o::::o     o::::oh:::::h     h:::::h
+  E:::::E       EEEEEE       v:::::::::v    e:::::::e           o::::o     o::::oh:::::h     h:::::h
+EE::::::EEEEEEEE:::::E        v:::::::v     e::::::::e          o:::::ooooo:::::oh:::::h     h:::::h
+E::::::::::::::::::::E         v:::::v       e::::::::eeeeeeee  o:::::::::::::::oh:::::h     h:::::h
+E::::::::::::::::::::E          v:::v         ee:::::::::::::e   oo:::::::::::oo h:::::h     h:::::h
+EEEEEEEEEEEEEEEEEEEEEE           vvv            eeeeeeeeeeeeee     ooooooooooo   hhhhhhh     hhhhhhh
+
+-->
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -98,11 +119,22 @@
     oB.settings.fadeTime = 0;
 
     $('body').scrollspy();
-    $('a').click(function(){
-        $('html, body').animate({
-            scrollTop: $( $(this).attr('href') ).offset().top
-        }, 500);
-        return false;
+
+    $('a').click(function() {
+        // trigger animation on internal links
+        if ($(this).attr('href').substr(0,1) === '#') {
+            if (history.pushState) {
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 500);
+
+                history.pushState(null, null, $(this).attr('href'));
+
+                return false;
+            }
+        }
+
+        return true;
     });
 </script>
 </body>
