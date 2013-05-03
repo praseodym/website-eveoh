@@ -80,7 +80,8 @@ deploy:
   staging:
     kind: rsync
     dst:  "p-web-01.eveoh.nl:/var/www/new.eveoh.nl"
-
+    options: [ "-glpPrtvz", "--delete-after", "--exclude=.DS_Store" ]
 #  prod:
 #    kind: rsync
 #    dst:  "p-web-01.eveoh.nl:/var/www/eveoh.nl"
+#    options: [ "-glpPrtvz", "--delete-after", "--exclude=.DS_Store" ]
