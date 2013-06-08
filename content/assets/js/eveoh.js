@@ -41,20 +41,33 @@ var loadPosts = function (data) {
 
 window.onload = function () {
     document.getElementById('mark').addEventListener('click', function() {
-        goGoGadgetNyanCat();
+        goGoGadgetNyanCat(false);
+    });
+
+    document.getElementById('sander').addEventListener('click', function() {
+        goGoGadgetNyanCat(true);
     });
 };
 
-function goGoGadgetNyanCat() {
+function goGoGadgetNyanCat(evilTwin) {
     if (typeof jQuery != 'undefined') {
-        $('<img src="/assets/img/nyancat.gif" id="nyancat" />').appendTo('body');
+        var animationName;
+        var animationOpts;
 
-        $('#nyancat').animate({
-            left: '5000px'
-        }, {
+        if (evilTwin) {
+            animationName = 'tacnayn';
+            animationOpts = { right: '5000px' };
+        } else {
+            animationName = 'nyancat';
+            animationOpts = { left: '5000px' };
+        }
+
+        $('<img src="/assets/img/' + animationName + '.gif" id="' + animationName + '" />').appendTo('body');
+
+        $('#' + animationName).animate(animationOpts, {
             duration: 5000,
             complete: function () {
-                $('#nyancat').remove();
+                $('#' + animationName).remove();
             }
         });
     }
