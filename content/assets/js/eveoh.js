@@ -38,37 +38,3 @@ var loadPosts = function (data) {
     document.getElementById('blog').innerHTML = header + content;
     document.getElementById('blog-mobile').innerHTML = content;
 }
-
-window.onload = function () {
-    document.getElementById('mark').addEventListener('click', function() {
-        goGoGadgetNyanCat(false);
-    });
-
-    document.getElementById('sander').addEventListener('click', function() {
-        goGoGadgetNyanCat(true);
-    });
-};
-
-function goGoGadgetNyanCat(evilTwin) {
-    if (typeof jQuery != 'undefined') {
-        var animationName;
-        var animationOpts;
-
-        if (evilTwin) {
-            animationName = 'tacnayn';
-            animationOpts = { right: '5000px' };
-        } else {
-            animationName = 'nyancat';
-            animationOpts = { left: '5000px' };
-        }
-
-        $('<img src="/assets/img/' + animationName + '.gif" id="' + animationName + '" />').appendTo('body');
-
-        $('#' + animationName).animate(animationOpts, {
-            duration: 5000,
-            complete: function () {
-                $('#' + animationName).remove();
-            }
-        });
-    }
-}
